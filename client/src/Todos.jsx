@@ -52,7 +52,7 @@ console.log(user)
         <section className="task-list" id="todo-list">
           <h2 className="task-header">Active tasks</h2>
           {tasks
-            .filter((task) => !task.done)
+            .filter((task) => task.status  !== 'done')
             .map((task) => (
               <Task task={task} key={task.id} Done={() => markTaskDone(task.id)} Delete={() => Delete(task.id)} />
             ))}
@@ -60,7 +60,7 @@ console.log(user)
         <section className="task-list completed" id="done-list">
           <h2 className="task-header">Completed Tasks</h2>
           {tasks
-            .filter((task) => task.done)
+            .filter((task) => task.status  == 'done')
             .map((task) => (
               <Task task={task} key={task.id} Delete={() => Delete(task.id)} />
             ))}
